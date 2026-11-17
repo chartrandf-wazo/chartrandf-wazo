@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 320" width="1280" height="320" role="img" aria-label="Welcome to My Work Account. Currently Lead Developer at Wazo.">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #333333; text-anchor: middle; }
+    .title { font-size: 52px; font-weight: 700; }
+    .subtitle { font-size: 24px; }
+    /* slide out of the corner in 0.4s, smile, watch until 2.4s, blink twice, slide back by 3.7s, once */
+    .peek { animation: peek 3.7s ease-in-out both; }
+    .eye { transform-box: fill-box; transform-origin: center; animation: blink 3.7s both; }
+    @keyframes peek {
+      0% { transform: translate(170px, 170px); }
+      10.8%, 89.2% { transform: translate(0, 0); }
+      100% { transform: translate(170px, 170px); }
+    }
+    @keyframes blink {
+      0%, 64.9%, 71.6%, 77%, 83.8%, 100% { transform: scaleY(1); }
+      68.2%, 80.4% { transform: scaleY(0.1); }
+    }
+    @media (prefers-reduced-motion: reduce) { .peek { display: none; } }
+  </style>
+  <defs>
+    <clipPath id="banner"><rect width="1280" height="320" rx="24"/></clipPath>
+  </defs>
+
+  <!-- avatar background -->
+  <rect width="1280" height="320" rx="24" fill="#F5EBB5"/>
+
+  <!-- valise + title centred together (title ~712px wide) -->
+  <g transform="translate(230 94)" stroke="#333333" stroke-linejoin="round">
+    <path d="M28 18v-6a4 4 0 0 1 4-4h16a4 4 0 0 1 4 4v6" fill="none" stroke-width="4"/>
+    <rect x="8" y="18" width="64" height="48" rx="8" fill="#FFB347" stroke-width="4"/>
+    <path d="M8 38h64" stroke-width="3"/>
+    <rect x="34" y="33" width="12" height="10" rx="2" fill="#333333" stroke="none"/>
+  </g>
+
+  <text class="title" x="688" y="155">Welcome to My Work Account</text>
+  <text class="subtitle" x="640" y="200">Currently Lead Developer at Wazo.</text>
+
+  <!-- spooky avatar: output/chartrandf.svg face (no round mask), flipped, in the bottom-right corner -->
+  <g clip-path="url(#banner)">
+    <g class="peek">
+      <svg x="1080" y="120" width="200" height="200" viewBox="0 0 36 36" overflow="visible">
+        <g transform="translate(36 0) scale(-1 1)">
+          <rect x="0" y="0" width="36" height="36" transform="translate(-6 7)" fill="#FF8C00" rx="36"/>
+          <g transform="translate(-3 3.5) rotate(1 18 18)">
+            <path d="M15 20c2 .25 4 .25 6 0" stroke="#000000" fill="none" stroke-linecap="round">
+              <animate attributeName="d" to="M15 20c2 1 4 1 6 0" begin="0s" dur="1s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".42 0 .58 1"/>
+            </path>
+            <rect class="eye" x="13" y="14" width="1.5" height="2" rx="1" fill="#000000"/>
+            <rect class="eye" x="21" y="14" width="1.5" height="2" rx="1" fill="#000000"/>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+</svg>
